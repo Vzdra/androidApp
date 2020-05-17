@@ -2,20 +2,20 @@ package com.example.myappproject.ResponseStructures;
 
 import java.util.List;
 
-public class Countries {
+public class Cities {
     private String status;
-    private List<Country> data;
+    private List<City> data;
 
-    public Countries(String status, List<Country> country) {
+    public Cities(String status, List<City> data) {
         this.status = status;
-        this.data = country;
+        this.data = data;
     }
 
     public String getStatus() {
         return status;
     }
 
-    public List<Country> getCountry() {
+    public List<City> getCities() {
         return data;
     }
 }
