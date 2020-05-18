@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavView = findViewById(R.id.navigation_bar);
         bottomNavView.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
-        //currentFragment.setTextView("Hello playa!");
+        currentFragment.setTextView("Hello stranger!");
 
         //=--------------------------------------
 //        GetDataService service = RetrofitClient.getRetrofitInstance().create(GetDataService.class);

@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myappproject.R;
 
+import org.w3c.dom.Text;
+
 public class HomeFragment extends Fragment {
 
     private TextView textView;
