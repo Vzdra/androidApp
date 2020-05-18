@@ -1,4 +1,4 @@
-package com.example.myappproject.ResponseStructures;
+package com.example.myappproject.Networking.ResponseStructures;
 
 public class InfoResponse {
 

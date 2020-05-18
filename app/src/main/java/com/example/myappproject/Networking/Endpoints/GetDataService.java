@@ -1,31 +1,29 @@
 package com.example.myappproject.Networking.Endpoints;
 
-import com.example.myappproject.ResponseStructures.Cities;
-import com.example.myappproject.ResponseStructures.Countries;
-import com.example.myappproject.ResponseStructures.DataObject;
-import com.example.myappproject.ResponseStructures.States;
-
-import java.util.List;
+import com.example.myappproject.Networking.ResponseStructures.Cities;
+import com.example.myappproject.Networking.ResponseStructures.Countries;
+import com.example.myappproject.Networking.ResponseStructures.InfoResponse;
+import com.example.myappproject.Networking.ResponseStructures.States;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface GetDataService {
 
-    @GET("/nearest_city?lat={lat}&lon={lon}key={apikey}")
-    Call<DataObject> nearestCityResults(@Path("apikey") String ki, @Path("lat") double lat, @Path("lon") double lon);
+    @GET("nearest_city")
+    Call<InfoResponse> nearestCityResults(@Query("key") String key);
 
-    @GET("/countries?key={apikey}")
-    Call<Countries> supportedCountries(@Path("apikey") String ki);
+    @GET("countries")
+    Call<Countries> supportedCountries(@Query("key") String key);
 
-    @GET("/states?country={country}&key={apikey}")
-    Call<States> supportedStatesInCountry(@Path("apikey") String ki, @Path("country") String country);
+    @GET("states")
+    Call<States> supportedStatesInCountry(@Query("country") String country, @Query("key") String key);
 
-    @GET("/cities?state={state}&country={country}&key={apikey}")
-    Call<Cities> supportedCitiesInState(@Path("apikey") String ki, @Path("country") String country, @Path("state") String state);
+    @GET("cities")
+    Call<Cities> supportedCitiesInState(@Query("state") String state, @Query("country") String country, @Query("key") String key);
 
-    @GET("/city?city={city}&state={state}&country={country}&key={apikey}")
-    Call<DataObject> cityInformation(@Path("apikey") String ki, @Path("country") String country, @Path("state") String state, @Path("city") String city);
+    @GET("city")
+    Call<InfoResponse> cityInformation(@Query("city") String city, @Query("state") String state, @Query("country") String country, @Query("key") String key);
 
 }

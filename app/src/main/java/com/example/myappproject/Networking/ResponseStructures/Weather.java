@@ -1,15 +1,15 @@
-package com.example.myappproject.ResponseStructures;
+package com.example.myappproject.Networking.ResponseStructures;
 
 public class Weather {
     private String ts;
     private int tp;
     private int pr;
     private int hu;
-    private float ws;
+    private int ws;
     private int wd;
     private String ic;
 
-    public Weather(String ts, int tp, int pr, int hu, float ws, int wd, String ic) {
+    public Weather(String ts, int tp, int pr, int hu, int ws, int wd, String ic) {
         this.ts = ts;
         this.tp = tp;
         this.pr = pr;
@@ -35,7 +35,7 @@ public class Weather {
         return hu;
     }
 
-    public float getWs() {
+    public int getWs() {
         return ws;
     }
 
