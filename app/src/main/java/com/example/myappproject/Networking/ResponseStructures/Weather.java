@@ -5,11 +5,11 @@ public class Weather {
     private int tp;
     private int pr;
     private int hu;
-    private int ws;
+    private float ws;
     private int wd;
     private String ic;
 
-    public Weather(String ts, int tp, int pr, int hu, int ws, int wd, String ic) {
+    public Weather(String ts, int tp, int pr, int hu, float ws, int wd, String ic) {
         this.ts = ts;
         this.tp = tp;
         this.pr = pr;
@@ -35,7 +35,7 @@ public class Weather {
         return hu;
     }
 
-    public int getWs() {
+    public float getWs() {
         return ws;
     }
 

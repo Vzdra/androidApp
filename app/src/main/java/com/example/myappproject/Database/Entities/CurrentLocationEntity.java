@@ -36,7 +36,7 @@ public class CurrentLocationEntity {
     private int humidity;
 
     @ColumnInfo(name = "windspeed")
-    private int windspeed;
+    private float windspeed;
 
     @ColumnInfo(name = "winddir")
     private int winddir;
@@ -44,7 +44,7 @@ public class CurrentLocationEntity {
     @ColumnInfo(name = "aqius")
     private int airqualityindex;
 
-    public CurrentLocationEntity(@NotNull String country, @NotNull String state, @NotNull String city, double lat, double lon, int temperature, int pressure, int humidity, int windspeed, int winddir, int airqualityindex) {
+    public CurrentLocationEntity(@NotNull String country, @NotNull String state, @NotNull String city, double lat, double lon, int temperature, int pressure, int humidity, float windspeed, int winddir, int airqualityindex) {
         this.country = country;
         this.state = state;
         this.city = city;
@@ -122,11 +122,11 @@ public class CurrentLocationEntity {
         this.humidity = humidity;
     }
 
-    public int getWindspeed() {
+    public float getWindspeed() {
         return windspeed;
     }
 
-    public void setWindspeed(int windspeed) {
+    public void setWindspeed(float windspeed) {
         this.windspeed = windspeed;
     }
 

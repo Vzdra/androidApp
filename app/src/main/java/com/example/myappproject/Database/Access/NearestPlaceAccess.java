@@ -25,7 +25,7 @@ public interface NearestPlaceAccess {
             int temper,
             int press,
             int humidity,
-            int windspeed,
+            float windspeed,
             int winddir,
             int aqius
     );
