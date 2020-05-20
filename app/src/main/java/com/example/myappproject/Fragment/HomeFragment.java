@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("CREATING");
 
         ctr = getArguments().getString("ct");
         stt = getArguments().getString("st");

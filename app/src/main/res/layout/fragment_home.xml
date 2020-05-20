@@ -134,7 +134,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/air_quality_label"
         android:textAlignment="center"
-        android:paddingTop="20dp"
+        android:padding="10dp"
         android:gravity="center_horizontal"
         android:textSize="25sp" />
 

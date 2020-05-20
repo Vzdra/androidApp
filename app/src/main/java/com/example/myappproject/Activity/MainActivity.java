@@ -13,6 +13,7 @@ import com.example.myappproject.Database.AppDB;
 import com.example.myappproject.Database.Entities.CurrentLocationEntity;
 import com.example.myappproject.Fragment.HomeFragment;
 import com.example.myappproject.Fragment.MapFragment;
+import com.example.myappproject.Helpers.Types;
 import com.example.myappproject.R;
 import com.example.myappproject.Service.GetLocationInterval;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -72,9 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.navigation_search:
                             Intent intent = new Intent(getBaseContext(), SearchActivity.class);
-                            intent.putExtra("country_search", true);
-                            intent.putExtra("state_search", false);
-                            intent.putExtra("city_search", false);
+                            intent.putExtra("type", Types.COUNTRY);
                             startActivity(intent);
                             break;
                     }
