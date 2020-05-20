@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 
 import com.example.myappproject.Database.AppDB;
@@ -27,15 +28,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        startService(new Intent(this, GetLocationInterval.class));
-
         db = AppDB.getDBInstance(this);
 
-        BottomNavigationView bottomNavView = findViewById(R.id.navigation_bar);
-        bottomNavView.setOnNavigationItemSelectedListener(navListener);
+        startService(new Intent(this, GetLocationInterval.class));
 
-        HomeFragment frag = returnHomeFrag();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
+
+        if(db.nearestPlaceAccess().getCurrent()!=null){
+
+            BottomNavigationView bottomNavView = findViewById(R.id.navigation_bar);
+            bottomNavView.setOnNavigationItemSelectedListener(navListener);
+
+            HomeFragment frag = returnHomeFrag();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
+
+        }else{
+
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    BottomNavigationView bottomNavView = findViewById(R.id.navigation_bar);
+                    bottomNavView.setOnNavigationItemSelectedListener(navListener);
+
+                    HomeFragment frag = returnHomeFrag();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
+                }
+            }, 2000);
+
+        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -59,8 +79,7 @@ public class MainActivity extends AppCompatActivity {
             };
 
     private CurrentLocationEntity queryNearest(){
-        CurrentLocationEntity res = db.nearestPlaceAccess().getCurrent();
-        return res;
+        return db.nearestPlaceAccess().getCurrent();
     }
 
     private HomeFragment returnHomeFrag(){
