@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = returnHomeFrag();
                             break;
                         case R.id.navigation_map:
-                            selectedFragment = new MapFragment();
+                            selectedFragment = returnMapFrag();
                             break;
                     }
 
@@ -84,5 +84,10 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment returnHomeFrag(){
         CurrentLocationEntity tt = queryNearest();
         return HomeFragment.getInstance(tt.getCountry(),tt.getState(),tt.getCity(),tt.getTemperature(),tt.getPressure(),tt.getHumidity(),tt.getWindspeed(),tt.getWinddir(),tt.getAirqualityindex());
+    }
+
+    private MapFragment returnMapFrag(){
+        CurrentLocationEntity tt = queryNearest();
+        return MapFragment.newInstance(tt.getLat(), tt.getLon(), tt.getAirqualityindex());
     }
 }

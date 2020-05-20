@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
         <service android:name=".Service.GetLocationInterval" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDVYQPuS79FnUaGUWkcBknpHmXmq5y6rWg"/>
     </application>
+
+
 
 </manifest>
