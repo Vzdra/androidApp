@@ -15,12 +15,6 @@
         app:showAsAction="always|withText" />
 
     <item
-        android:id="@+id/navigation_favourite"
-        android:icon="@drawable/ic_star_black_24dp"
-        android:title="@string/fav"
-        app:showAsAction="ifRoom|withText" />
-
-    <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/search"
