@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         startService(new Intent(this, GetLocationInterval.class));
 
-
         if(db.nearestPlaceAccess().getCurrent()!=null){
 
             BottomNavigationView bottomNavView = findViewById(R.id.navigation_bar);
