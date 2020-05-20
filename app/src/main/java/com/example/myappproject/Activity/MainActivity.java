@@ -70,9 +70,19 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_map:
                             selectedFragment = returnMapFrag();
                             break;
+                        case R.id.navigation_search:
+                            Intent intent = new Intent(getBaseContext(), SearchActivity.class);
+                            intent.putExtra("country_search", true);
+                            intent.putExtra("state_search", false);
+                            intent.putExtra("city_search", false);
+                            startActivity(intent);
+                            break;
                     }
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    if(selectedFragment!=null){
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                    }
+
                     return true;
                 }
             };
