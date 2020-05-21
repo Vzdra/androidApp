@@ -7,13 +7,13 @@
     tools:context=".Activity.DetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/details_appbar"
+        android:id="@+id/tools_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay" >
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/details_toolbar"
+            android:id="@+id/toolbar_details"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -23,7 +23,7 @@
 
     <FrameLayout
         android:id="@+id/details_fragment_container"
-        android:layout_below="@id/details_appbar"
+        android:layout_below="@id/tools_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

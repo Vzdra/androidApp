@@ -22,6 +22,7 @@ public class GetLocationInterval extends Service {
     private int INTERVAL = 3600000;
     private Handler iHandler;
     AppDB db;
+    private static GetLocationInterval instance;
 
     @Override
     public void onCreate() {

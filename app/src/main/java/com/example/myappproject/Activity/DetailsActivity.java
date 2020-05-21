@@ -19,11 +19,15 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar_details);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if(toolbar!=null){
+            setSupportActionBar(toolbar);
+            ActionBar actionBar = getSupportActionBar();
+            toolbar.setTitle("Details");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
 
         Intent intent = getIntent();
         String ct = intent.getStringExtra("ct");

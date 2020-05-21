@@ -47,15 +47,6 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<CustomViewHolde
         this.state = state;
     }
 
-    public RecyclerViewAdapter(List<T> dataList, Context context, Types type, String country, String state, String city){
-        this.dataList = dataList;
-        this.context = context;
-        this.type = type;
-        this.country = country;
-        this.state = state;
-        this.city = city;
-    }
-
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

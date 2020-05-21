@@ -35,4 +35,15 @@ public class DataObject {
     public Current getCurrent() {
         return current;
     }
+
+    @Override
+    public String toString() {
+        return "DataObject{" +
+                "city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", location=" + location +
+                ", current=" + current +
+                '}';
+    }
 }

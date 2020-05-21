@@ -68,17 +68,11 @@ public class SearchActivity extends AppCompatActivity {
             }else if(type == Types.STATE){
                 String country = intent.getStringExtra("country_name");
                 getStates(country);
-            }else if(type == Types.CITY){
+            }else{
                 String country = intent.getStringExtra("country_name");
                 String state = intent.getStringExtra("state_name");
                 getCity(country, state);
-            }else {
-                String country = intent.getStringExtra("country_name");
-                String state = intent.getStringExtra("state_name");
-                String city = intent.getStringExtra("city_name");
-                getDetails(country, state, city);
             }
-
         }else{
             textView.setText("An unexpected error occured :(");
         }
@@ -155,38 +149,6 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Cities> call, Throwable t) {
-                System.out.println(t);
-            }
-        });
-    }
-
-    public void getDetails(String country, String state, String city){
-        GetDataService endpoint = RetrofitClient.getRetrofitInstance().create(GetDataService.class);
-        Call<InfoResponse> call = endpoint.cityInformation(city, state, country, key);
-        call.enqueue(new Callback<InfoResponse>(){
-
-            @Override
-            public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
-                if(response.isSuccessful()){
-                    if (response.body()!=null){
-                        DataObject data = response.body().getData();
-                        Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
-                        intent.putExtra("ct", data.getCountry());
-                        intent.putExtra("st", data.getState());
-                        intent.putExtra("cy", data.getCity());
-                        intent.putExtra("tp", data.getCurrent().getWeather().getTp());
-                        intent.putExtra("pr", data.getCurrent().getWeather().getPr());
-                        intent.putExtra("hm", data.getCurrent().getWeather().getHu());
-                        intent.putExtra("ws", data.getCurrent().getWeather().getWs());
-                        intent.putExtra("wd", data.getCurrent().getWeather().getWd());
-                        intent.putExtra("aq", data.getCurrent().getPollution().getAqius());
-                        startActivity(intent);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<InfoResponse> call, Throwable t) {
                 System.out.println(t);
             }
         });
