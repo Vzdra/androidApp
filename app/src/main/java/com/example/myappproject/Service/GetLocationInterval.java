@@ -40,10 +40,11 @@ public class GetLocationInterval extends Service {
             call.enqueue(new Callback<InfoResponse>() {
                 @Override
                 public void onResponse(Call<InfoResponse> call, Response<InfoResponse> response) {
-                    if(response!=null){
-                        DataObject temp = response.body().getData();
-                        db.nearestPlaceAccess().nukeTable();
-                        db.nearestPlaceAccess().insertLocation(
+                    if(response.body()!=null){
+                        if(response.body().getStatus().equals("success")){
+                            DataObject temp = response.body().getData();
+                            db.nearestPlaceAccess().nukeTable();
+                            db.nearestPlaceAccess().insertLocation(
                                 temp.getCountry(),
                                 temp.getState(),
                                 temp.getCity(),
@@ -55,7 +56,8 @@ public class GetLocationInterval extends Service {
                                 temp.getCurrent().getWeather().getWs(),
                                 temp.getCurrent().getWeather().getWd(),
                                 temp.getCurrent().getPollution().getAqius()
-                        );
+                            );
+                        }
                     }
                 }
 

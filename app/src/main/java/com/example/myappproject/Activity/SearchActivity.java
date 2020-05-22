@@ -86,8 +86,8 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<Countries> call, Response<Countries> response) {
-                if(response.isSuccessful()){
-                    if (response.body()!=null){
+                if (response.body()!=null){
+                    if(response.body().getStatus().equals("success")){
                         textView.setText("Countries:");
                         RecyclerViewAdapter adapter = new RecyclerViewAdapter(response.body().getCountry(), getApplicationContext(), Types.COUNTRY);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -111,8 +111,8 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<States> call, Response<States> response) {
-                if(response.isSuccessful()){
-                    if (response.body()!=null){
+                if (response.body()!=null){
+                    if(response.body().getStatus().equals("success")){
                         textView.setText("States:");
                         RecyclerViewAdapter adapter = new RecyclerViewAdapter(response.body().getState(), getApplicationContext(), Types.STATE, country);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -136,8 +136,8 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<Cities> call, Response<Cities> response) {
-                if(response.isSuccessful()){
-                    if (response.body()!=null){
+                if (response.body()!=null){
+                    if(response.body().getStatus().equals("success")){
                         textView.setText("Cities:");
                         RecyclerViewAdapter adapter = new RecyclerViewAdapter(response.body().getCities(), getApplicationContext(), Types.CITY, country, state);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
